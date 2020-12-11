@@ -32,6 +32,10 @@ Or
   <column_name> <data_type>
 );`
 
+## Delete
+
+`DROP TABLE <table_name>;`
+
 ## Show
 
 `SHOW TABLES;`
