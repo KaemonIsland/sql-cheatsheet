@@ -1,4 +1,5 @@
 # sql-cheatsheet
+
 A cheat sheat for MySQL/SQL usage.
 
 # Databases
@@ -27,39 +28,28 @@ Or
 
 ## Create
 
-`CREATE TABLE <table_name> (
-  <column_name> <data_type>,
-  <column_name> <data_type>
-);`
+`CREATE TABLE <table_name> ( <column_name> <data_type>, <column_name> <data_type> );`
 
 Specify not null.
 
-`CREATE TABLE <table_name> (
-  <column_name> <data_type> NOT NULL
-);`
+`CREATE TABLE <table_name> ( <column_name> <data_type> NOT NULL );`
 
 Default Values.
 
-`CREATE TABLE <table_name> (
-  <column_name> <data_type> DEFAULT <default_value>
-);`
+`CREATE TABLE <table_name> ( <column_name> <data_type> DEFAULT <default_value> );`
 
 Add Primary Key.
 Keep values unique by making them primary keys.
 
-`CREATE TABLE <table_name> (
-  <column_name> <data_type>,
-  <identifier_name> INT NOT NULL,
-  PRIMARY KEY (<identifier_name>)
-);`
+`CREATE TABLE <table_name> ( <column_name> <data_type>, <identifier_name> INT NOT NULL, PRIMARY KEY (<identifier_name>) );`
 
 `// Example
 
 CREATE TABLE unique_cats (
-  cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id
-  name VARCHAR(20),
-  age INT,
-  PRIMARY KEY (cat_id)
+cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id
+name VARCHAR(20),
+age INT,
+PRIMARY KEY (cat_id)
 );
 `
 
@@ -75,16 +65,11 @@ CREATE TABLE unique_cats (
 
 Order matters with params!
 
-`INSERT INTO <table_name>(column_name1, column_name2)
-VALUES (column_name1, column_name2);`
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2);`
 
 Can bulk insert data.
 
-`INSERT INTO <table_name>(column_name1, column_name2)
- VALUES (column_name1, column_name2),
-        (column_name1, column_name2),
-        (column_name1, column_name2);`
-
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2), (column_name1, column_name2), (column_name1, column_name2);`
 
 # Columns
 
@@ -92,7 +77,7 @@ Can bulk insert data.
 
 `SHOW COLUMNS FROM <table_name>;`
 
-Or
+Or with describe
 
 `DESC <table_name>;`
 
