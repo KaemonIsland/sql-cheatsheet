@@ -43,15 +43,9 @@ Keep values unique by making them primary keys.
 
 `CREATE TABLE <table_name> ( <column_name> <data_type>, <identifier_name> INT NOT NULL, PRIMARY KEY (<identifier_name>) );`
 
-`// Example
+EX.
 
-CREATE TABLE unique_cats (
-cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id
-name VARCHAR(20),
-age INT,
-PRIMARY KEY (cat_id)
-);
-`
+`CREATE TABLE unique_cats ( cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id name VARCHAR(20), age INT, PRIMARY KEY (cat_id) ); `
 
 ## Delete
 
@@ -84,6 +78,38 @@ Or with describe
 ## Select
 
 `SELECT * FROM <table_name>;`
+
+# CRUD Actions
+
+## SELECT
+
+Selects property from table.
+
+Show all items within table
+
+`SELECT * FROM <table_name>`
+
+Show all of one column value within a table
+
+`SELECT <column> FROM <table_name>;`
+
+EX. `SELECT name FROM employees;`
+
+Use a comma to select multiple columns. (order matters)
+
+EX. `SELECT age, name FROM users;`
+
+## INSERT
+
+Inserts data into tables
+
+Order matters with params!
+
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2);`
+
+Can bulk insert data.
+
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2), (column_name1, column_name2), (column_name1, column_name2);`
 
 # Warnings
 
