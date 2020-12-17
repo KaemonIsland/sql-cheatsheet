@@ -81,7 +81,19 @@ Or with describe
 
 # CRUD Actions
 
-## SELECT
+## INSERT (create)
+
+Inserts data into tables
+
+Order matters with params!
+
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2);`
+
+Can bulk insert data.
+
+`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2), (column_name1, column_name2), (column_name1, column_name2);`
+
+## SELECT (Read)
 
 Selects property from table.
 
@@ -99,23 +111,61 @@ Use a comma to select multiple columns. (order matters)
 
 EX. `SELECT age, name FROM users;`
 
-## INSERT
+### ALIAS
 
-Inserts data into tables
+You can show data with different names without altering columns using AS.
 
-Order matters with params!
+`SELECT <column_name> AS <desired_name> FROM <table_name>;`
 
-`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2);`
+EX.
 
-Can bulk insert data.
+`SELECT user_id AS id, name FROM employees;`
 
-`INSERT INTO <table_name>(column_name1, column_name2) VALUES (column_name1, column_name2), (column_name1, column_name2), (column_name1, column_name2);`
+## WHERE (All)
+
+Specifies what we want to apply actions to.
+
+At the end of a general query add WHERE + requirements.
+
+Searching by string is cas INSENSITIVE. 'Steve' and 'StEvE' will return the same results.
+
+`<query> WHERE <requirements>`
+
+EX
+
+`WHERE name = "steve";`
+
+`WHERE age = 23`
+
+## UPDATE (Update, duh)
+
+ALWAYS try SELECTing before you UPDATE data.
+
+Updates one value to a new value using WHERE.
+
+`UPDATE <table_name> SET <column_name>=<desired_value> WHERE <requirement>;`
+
+EX.
+
+`UPDATE users SET name="Kaemon" WHERE user_id = 23;`
+
+## DELETE (delete, also duh)
+
+Removes data from tables that meet the requirements.
+
+THERE IS NO UNDO BUTTON WITH DELETE.
+
+`DELETE FROM <table_name> WHERE <requirement>;`
+
+Remove all data from a table, not the same as `DROP TABLE <table_name>`.
+
+`DELETE FROM <table_name>;`
 
 # Warnings
 
 ## Show
 
-Run this command if you receive a message when insterting data into a table.
+Run this command if you receive a message when inserting data into a table.
 Warnings can only be shown immediately after receiving one. Otherwise it will show 0 warnings.
 
 `SHOW WARNINGS;`
