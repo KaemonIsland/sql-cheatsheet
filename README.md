@@ -2,6 +2,14 @@
 
 A cheat sheat for MySQL/SQL usage.
 
+# Tips
+
+Running commands from the CLI is great and everything. But being able to edit multiple lines, or update complicated commands in the future is so much better!
+
+Use `.sql` files containing SQL commands works the same as typing them within the CLI.
+
+Use the command `source <path_to_file>;` to run commands within the file.
+
 # Databases
 
 ## List
@@ -45,7 +53,7 @@ Keep values unique by making them primary keys.
 
 EX.
 
-`CREATE TABLE unique_cats ( cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id name VARCHAR(20), age INT, PRIMARY KEY (cat_id) ); `
+`CREATE TABLE unique_cats ( cat_id INT NOT NULL AUTO_INCREMENT, // Cannot be null and will auto update the id name VARCHAR(20), age INT, PRIMARY KEY (cat_id) );`
 
 ## Delete
 
@@ -169,3 +177,5 @@ Run this command if you receive a message when inserting data into a table.
 Warnings can only be shown immediately after receiving one. Otherwise it will show 0 warnings.
 
 `SHOW WARNINGS;`
+
+# String Functions
