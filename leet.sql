@@ -1,0 +1,1 @@
+SELECT REPLACE(REPLACE(REPLACE(REPLACE(title, 'a', '4'), 'o', '0'), 'e', '3'), 'i', '1') FROM books;

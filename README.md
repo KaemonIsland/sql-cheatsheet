@@ -223,3 +223,12 @@ Return 'Hello'
 
 EX. `SELECT SUBSTRING('Hello World', 7);`
 Returns 'World'
+
+## REPLACE
+
+Replaces parts of a string. Replacing is CASE SENSITIVE.
+
+E. `SELECT REPLACE('Hello World', 'Hell', '%$#@');`
+Returns `%$#@o World`.
+
+Ex. `SELECT REPLACE('cheese bread coffee milk', ' ', ' and ' );`
