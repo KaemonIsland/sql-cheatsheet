@@ -1,6 +1,6 @@
 # sql-cheatsheet
 
-A cheat sheat for MySQL/SQL usage.
+A cheat sheet for MySQL/SQL usage.
 
 # Tips
 
@@ -26,9 +26,11 @@ Use the command `source <path_to_file>;` to run commands within the file.
 
 ## Select/Use
 
+To select a database.
+
 `USE <database_name>;`
 
-Or
+Or to show the selected database.
 
 `SELECT database();`
 
@@ -179,3 +181,29 @@ Warnings can only be shown immediately after receiving one. Otherwise it will sh
 `SHOW WARNINGS;`
 
 # String Functions
+
+Here we can find a list of string functions available to us.
+
+[Current Functions](https://dev.mysql.com/doc/refman/8.0/en/string-functions.html)
+
+The following shows commonly used string functions with examples.
+
+## CONCAT
+
+Combines columns together, you can also include text. This will show the concat used in the column header.
+
+`CONCAT(<column_name>, <column_name2>);`
+
+Ex. `SELECT CONCAT(first_name, ' ', last_name) FROM customers;`
+
+Use `AS` to change the name of the returned data.
+
+Ex. `SELECT CONCAT(first_name, ' ', last_name) AS 'Full Name' FROM employees;`
+
+### CONCAT_WS
+
+First argument is applied between each column as a separator.
+
+`CONCAT_WS(' - ', title, first_name, last_name);`
+
+This will apply `' - '` between all columns.
