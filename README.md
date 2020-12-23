@@ -232,3 +232,10 @@ E. `SELECT REPLACE('Hello World', 'Hell', '%$#@');`
 Returns `%$#@o World`.
 
 Ex. `SELECT REPLACE('cheese bread coffee milk', ' ', ' and ' );`
+
+## REVERSE
+
+Does what you thing, reverses a string!
+
+Ex. `SELECT REVERSE('Hello World');`
+Returns "dlroW olleH"
