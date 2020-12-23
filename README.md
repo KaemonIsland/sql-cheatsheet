@@ -246,3 +246,13 @@ Returns the length of the string.
 
 Ex. `SELECT CHAR_LENGTH('Hello World');`
 Returns 11
+
+### UPPER/LOWER
+
+Changes case text like uppercase and lower case.
+
+Ex. `SELECT UPPER('hello world');`
+Returns 'HELLO WORLD'
+
+Ex. `SELECT LOWER('Hello World');`
+Returns 'hello world'.
