@@ -188,6 +188,8 @@ Here we can find a list of string functions available to us.
 
 The following shows commonly used string functions with examples.
 
+String functions can be combined and nested to get more complex results.
+
 ## CONCAT
 
 Combines columns together, you can also include text. This will show the concat used in the column header.
@@ -207,3 +209,17 @@ First argument is applied between each column as a separator.
 `CONCAT_WS(' - ', title, first_name, last_name);`
 
 This will apply `' - '` between all columns.
+
+## SUBSTRING
+
+Return a substring of the first parameter.
+
+NOTE: SQL starts indexes at 1, not 0 like most programming languages.
+
+SUBSTRING(string, start_index, end_index).
+
+EX. `SELECT SUBSTRING('Hello World', 1, 5);`
+Return 'Hello'
+
+EX. `SELECT SUBSTRING('Hello World', 7);`
+Returns 'World'
