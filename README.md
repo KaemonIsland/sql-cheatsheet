@@ -239,3 +239,10 @@ Does what you thing, reverses a string!
 
 Ex. `SELECT REVERSE('Hello World');`
 Returns "dlroW olleH"
+
+## CHAR_LENGTH
+
+Returns the length of the string.
+
+Ex. `SELECT CHAR_LENGTH('Hello World');`
+Returns 11
