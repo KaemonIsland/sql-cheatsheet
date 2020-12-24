@@ -247,7 +247,7 @@ Returns the length of the string.
 Ex. `SELECT CHAR_LENGTH('Hello World');`
 Returns 11
 
-### UPPER/LOWER
+## UPPER/LOWER
 
 Changes case text like uppercase and lower case.
 
@@ -256,3 +256,101 @@ Returns 'HELLO WORLD'
 
 Ex. `SELECT LOWER('Hello World');`
 Returns 'hello world'.
+
+# Refining Selections
+
+## DISTINCT
+
+Used with `SELECT` Removes duplicated entries from statements.
+
+`SELECT DISTINCT <columns_name> FROM <table_name>;`
+
+Show all author last names without dups.
+Ex. `SELECT DISTINCT author_lname FROM books;`
+
+## ORDER BY
+
+Orders results by specified parameter.
+
+Note: Ascending is used by default. Add `DESC` to the end to reverse.
+
+You can also specify `ASC` but it's not required.
+
+`SELECT * FROM <table_name> ORDER BY <parameter>;`
+
+With `DESC`
+
+`SELECT * FROM <table_name> ORDER BY <parameter> DESC;`
+
+Ex. `SELECT first_name FROM employees ORDER BY first_name;`
+
+You can also specify the param to specify using the select param number.
+
+`SELECT first_name, last_name, title FROM books ORDER BY 2;`
+
+This will order the results by `last_name` because it is the 2nd parameter.
+
+You can also order multiple columns by order listed.
+
+`... ORDER BY first_name, last_name;`
+
+Will order by first name, then within the first name order by last name.
+
+## LIMIT
+
+Limits the amount of queries by a maximum.
+
+`SELECT * FROM <table_name> LIMIT 50`
+
+Only returns first 50 results.
+
+You can also specify the length of rows by including a second param.
+This is mainly used for Pagination.
+
+`... LIMIT 0, 3;`
+
+Returns first 3 results starting at the first item.
+
+`... LIMIT 2, 6;`
+
+Returns the 3rd -> 5th items not included the 6th.
+
+If you want to start at a specific point, and return the rest of the data you will need to use a gigantic number!
+
+`... LIMIT 95, 18446744073709551615;`
+
+## LIKE
+
+Better Searching!
+
+Similar to `WHERE`, like searches somewhat matching results.
+
+"I'm looking for an employee, I can't remember their name...
+I know it's something like David, maybe Dan?"
+
+This example searches first names that contain 'd' and 'a'. Characters are NOT case sensitive.
+
+Using 'd' will match 'D' and 'd'.
+
+`%` Are wildcards.
+
+`... WHERE first_name LIKE '%da%';`
+
+### WILDCARDS
+
+You can use `\` to escape wildcards.
+
+#### %
+
+Matches any number of characters!
+
+##### _
+
+Specifies exactly 1 character difference.
+
+Can be used to specify the number of digits.
+
+Phone Numbers matcher
+(123)456-7890
+
+`... WHERE phone_number LIKE '(___)___-___';`
