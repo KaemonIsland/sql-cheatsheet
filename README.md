@@ -354,3 +354,28 @@ Phone Numbers matcher
 (123)456-7890
 
 `... WHERE phone_number LIKE '(___)___-___';`
+
+# Aggregate Functions
+
+Built in functions that allow us to work with / aggregate lots of data.
+
+Stuff like counting, getting averages, etc.
+
+## Count
+
+Counts the number of returned rows.
+
+`SELECT COUNT(*) FROM <table_name>;`
+
+EX selecting unique first names
+
+`SELECT COUNT(DISTINCT(first_name)) FROM employees;`
+
+## Group By
+
+GROUP BY summarizes or aggregates identical data into single rows.
+
+Ex. `SELECT last_name, COUNT(score) FROM students GROUP BY last_name;`
+Returns. Each child as a group with a count of scores.
+
+Ex. `SELECT CONCAT("In ", released_year, " ", COUNT(*), " book(s) released") AS "Year" FROM books GROUP BY released_year ORDER BY released_year DESC;`
