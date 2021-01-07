@@ -344,7 +344,7 @@ You can use `\` to escape wildcards.
 
 Matches any number of characters!
 
-##### _
+##### \_
 
 Specifies exactly 1 character difference.
 
@@ -379,3 +379,36 @@ Ex. `SELECT last_name, COUNT(score) FROM students GROUP BY last_name;`
 Returns. Each child as a group with a count of scores.
 
 Ex. `SELECT CONCAT("In ", released_year, " ", COUNT(*), " book(s) released") AS "Year" FROM books GROUP BY released_year ORDER BY released_year DESC;`
+
+## MIN & MAX
+
+Return the Minimum or Maximum values within a table.
+
+Note: Max/Min call are independent from other queries, thus a query will perform max/min first, then other actions.
+Ex you want to get the book title that has the most pages. You would get Max pages, and the title from the first book in the DB.
+
+`SELECT MIN(<column_name>) FROM <table_name>;`
+
+Ex `SELECT MAX(income) FROM <employees>;`
+returns Max income value.
+
+# SUBQUERIES
+
+Performs a sub query that is required for a second query.
+Here, the `WHERE` statement is executed first, then used to find a matching row.
+
+`SELECT * FROM <table_name> WHERE <column_name> = (SELECT Min(<column_name>) FROM <table_name>);`
+
+Ex `SELECT * FROM books WHERE pages = (SELECT MAX(pages) FROM books);`
+
+This method can be slow considering two queries are being made.
+
+## Using `ORDER BY`
+
+Ex `SELECT * FROM <table_name> ORDER BY <column_name> ASC LIMIT 1`
+
+## Using `GROUP BY`
+
+For questions like "Find the year each author published their first book"
+
+Ex `SELECT author_fname, author_lname, MIN(released_year) FROM books GROUP BY author_lname, author_fname;`
