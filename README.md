@@ -562,3 +562,11 @@ Adds time (month, year, days) to a date.
 You can also just use `+/-` signs.
 
 [See Hear](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-add)
+
+#### TIMESTAMPS
+
+Does relatively the same thing as DATETIME, but the range of times and dates varies.
+
+TIMESTAMP ranges from 1970 to 2038. DATETIME can rage to year 1000 to 9999.
+
+Used to normally track created_at and updated_at for items. It's easier and takes up less storage.
