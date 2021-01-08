@@ -429,3 +429,136 @@ Ex. Sum all pages each author has written
 Gets the average of items within a column.
 
 `SELECT AVG(<column_name>) FROM <table_name>;`
+
+# Data Types
+
+## Strings (Storing Text)
+
+### CHAR
+
+Has a fixed length. Every entry will have the exact same length.
+
+`CHAR(3)`, every string entered will be 3 characters long.
+
+Shorter strings will have spaces added to reach the length.
+
+Items that are longer will be cutoff at the fixed length.
+
+You can choose any value from 0 to 255.
+
+CHAR is faster for fixed length text.
+Ex. State abbreviations, yes/no flags, Sex.
+
+### VARCHAR
+
+Pretty much the same as CHAR except it stores strings at variable lengths.
+
+It will also cutoff text that is longer than the specified length, but will
+not pad the string if it is shorter than the length.
+
+You can choose any value from 0 to 65535.
+
+## Numeric
+
+### INT
+
+Stores whole numbers.
+
+Number can be from -2147483648 to 2147483647
+
+### DECIMAL
+
+Are fixed-point types and have EXACT calculations.
+
+Stores decimals. Takes 2 params
+
+1st param - The amount of total digits. Can be 1 to 65.
+2nd param - The amount of digits to the right of the decimal. Can be 0 to 30.
+
+// 5 digits, 2 decimal places.
+`DECIMAL(5, 2)` => 123.45
+
+If the number inserted is larger than the max specified the numbers will fill up to the max possible.
+123432434234 => 999.99 // Using the above example
+
+### FLOAT && DOUBLE
+
+Are floating-point types and have APPROXIMATE calculations.
+
+Stores larger numbers with less data.
+
+Less accurate but a lot faster!
+
+## Dates/Times
+
+### DATE
+
+Values with a Date but no time.
+
+Stored as `YYYY-MM-DD`.
+
+### TIME
+
+Values with a time and not date.
+
+Stored as `HH:MM:SS`
+
+### DATETIME
+
+Can store values with a Date and a Time. (Wow!)
+
+Stored as `YYYY-MM-DD HH:MM:SS`
+
+## Helpful DATE && TIME methods
+
+### CURDATE && CURTIME && NOW
+
+These methods return the current date && times depending on which ones you use.
+
+### DAY
+
+Returns the day of the month.
+
+### DAYNAME
+
+Returns the name of the day of the week.
+
+### DAYOFWEEK
+
+Returns the number of the day of the week. Starts at 1.
+
+### DAYOFYEAR
+
+Returns what day it is out of the year.
+
+### MONTH
+
+Returns the number of the month.
+
+### MONTHNAME
+
+returns the name of the month.
+
+### HOUR && MINUTE && SECOND
+
+Returns parts of the time.
+
+### DATEFORMAT
+
+Can format dates to be more readable or another desired format.
+
+[See Here](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-format)
+
+### DATE MATH
+
+#### DATEDIFF
+
+Returns the value in days from one date to the other.
+
+##### DATE_ADD
+
+Adds time (month, year, days) to a date.
+
+You can also just use `+/-` signs.
+
+[See Hear](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_date-add)
