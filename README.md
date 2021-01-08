@@ -412,3 +412,20 @@ Ex `SELECT * FROM <table_name> ORDER BY <column_name> ASC LIMIT 1`
 For questions like "Find the year each author published their first book"
 
 Ex `SELECT author_fname, author_lname, MIN(released_year) FROM books GROUP BY author_lname, author_fname;`
+
+## SUM
+
+Sum all numbers within a column.
+
+`SELECT SUM(<int_column>) FROM <table_name>;`
+
+With `GROUP BY`
+
+Ex. Sum all pages each author has written
+`SELECT SUM(pages) FROM books GROUP BY author_fname, author_lname;`
+
+## AVG
+
+Gets the average of items within a column.
+
+`SELECT AVG(<column_name>) FROM <table_name>;`
