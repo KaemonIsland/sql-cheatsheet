@@ -580,10 +580,10 @@ Or select everything that is exactly like this thing, etc.
 - Not Like - `NOT LIKE`
 - Greater Than - `>`
 - Less Than - `<`
-- Logical AND - `&&`
-- Logical OR - `||`
+- Logical AND - `AND`
+- Logical OR - `OR`
 - Between - `BETWEEN <value> AND <value>`
-- In And Not In - `<value> IN (<param1>, <param2>, <param3>)`
+- In And Not In - `<value> IN (<param1>, <param2>, <param3>)` and `<value> NOT IN (<paramN>)`
 - Case Statements:
   `CASE WHEN <logic> THEN '*' WHEN <logic1> THEN '**' ELSE '***`
   END
