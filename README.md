@@ -570,3 +570,21 @@ Does relatively the same thing as DATETIME, but the range of times and dates var
 TIMESTAMP ranges from 1970 to 2038. DATETIME can rage to year 1000 to 9999.
 
 Used to normally track created_at and updated_at for items. It's easier and takes up less storage.
+
+## Logical Operators
+
+Used to further specify results. When you want something that's greater than another.
+Or select everything that is exactly like this thing, etc.
+
+- Not Equal - `!=`
+- Not Like - `NOT LIKE`
+- Greater Than - `>`
+- Less Than - `<`
+- Logical AND - `&&`
+- Logical OR - `||`
+- Between - `BETWEEN <value> AND <value>`
+- In And Not In - `<value> IN (<param1>, <param2>, <param3>)`
+- Case Statements:
+  `CASE WHEN <logic> THEN '*' WHEN <logic1> THEN '**' ELSE '***`
+  END
+  `
