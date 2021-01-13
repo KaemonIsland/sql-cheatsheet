@@ -586,5 +586,5 @@ Or select everything that is exactly like this thing, etc.
 - In And Not In - `<value> IN (<param1>, <param2>, <param3>)` and `<value> NOT IN (<paramN>)`
 - Case Statements:
   `CASE WHEN <logic> THEN '*' WHEN <logic1> THEN '**' ELSE '***`
-  END
+  END AS <readable_name>
   `
