@@ -588,3 +588,46 @@ Or select everything that is exactly like this thing, etc.
   `CASE WHEN <logic> THEN '*' WHEN <logic1> THEN '**' ELSE '***`
   END AS <readable_name>
   `
+
+# Relations
+
+### Foreign Keys
+
+References to another table within a table.
+
+Use the keyword `FOREIGN KEY` when creating a new table to add a foreign key. You must then pass the name of the column that will be used as the key to `FOREIGN KEY`.
+
+Afterwards you will need to specify the table and column that the foreign key will reference. Ex. `REFERENCES <table_name>(<column_name>);`
+
+Full Example.
+
+```
+    CREATE TABLE customers (
+        id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        name VARCHAR(100),
+        email VARCHAR(100)
+    );
+
+    CREATE TABLE orders (
+        id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        order_date DATE,
+        amount DECIMAL(8,2),
+        customer_id INT,
+        FOREIGN KEY(customer_id) REFERENCES customers(id)
+    );
+```
+
+## One to One
+
+Not very common.
+Add additional table for use details.
+One detail entry for one customer.
+
+## One to Many
+
+The most common relationship.
+One book can have tons of reviews.
+
+## Many to Many
+
+A book can have many authors, and authors can have many books.
