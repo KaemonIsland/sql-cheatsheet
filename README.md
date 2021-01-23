@@ -591,7 +591,24 @@ Or select everything that is exactly like this thing, etc.
 
 # Relations
 
-### Foreign Keys
+## One to One
+
+Not very common.
+Add additional table for use details.
+One detail entry for one customer.
+
+## One to Many
+
+The most common relationship.
+One book can have tons of reviews.
+
+## Many to Many
+
+A book can have many authors, and authors can have many books.
+
+# How to work with relationed tables
+
+## Foreign Keys
 
 References to another table within a table.
 
@@ -617,17 +634,69 @@ Full Example.
     );
 ```
 
-## One to One
+## Cross Join
 
-Not very common.
-Add additional table for use details.
-One detail entry for one customer.
+Instead of coding something like:
 
-## One to Many
+`SELECT * FORM customers WHERE last_name = 'George';` and
+`SELECT * FROM orders WHERE customer_id = 1;`
 
-The most common relationship.
-One book can have tons of reviews.
+We can use a sub-query like this.
 
-## Many to Many
+`SELECT * FORM orders WHERE
+  (
+    SELECT id FROM customers
+    WHERE last_name = 'George'
+  );
+`
 
-A book can have many authors, and authors can have many books.
+The above is also not ideal. It's basically the same as the first, and isn't easily
+used dynamically.
+
+With JOINS we can save a lot of time making queries.
+
+Ex.
+
+`SELECT * FROM customers, orders;`
+
+This will basically multiply the two tables together, by showing each possible combination.
+It doesn't mean much to us, and can be pretty hard to understand.
+
+## Inner Join
+
+Most common joining method. Returns all results that fit the criteria. (Leaves out results that do not relate to each other.)
+
+#### Implicit Inner Join
+
+__Joining tables where they match.__
+
+Similar to Cross joining tables, we can narrow down the information to something that can make sense to us.
+
+`SELECT * FROM customers, orders WHERE customers.id = orders.customer_id;`
+
+You can specify which table column your using. Like both the orders, and customers tables have an id. So
+above we specify the customers.id and orders.customer_id. This narrows our results so that we're not getting
+a ton of confusing information.
+
+### Explicit Inner Joins
+
+__Joining tables where they don't match.__
+
+The following example does the same thing as the implicit join. Except the syntax is... well more explicit.
+
+Ex.
+`SELECT * FROM customers JOIN orders ON customers.id = orders.customer_id;`
+
+## Left Join
+
+Select everything from table A, along with any matching records from table B.
+
+`SELECT * FROM customers LEFT JOIN orders ON customers.id = orders.customer_id;`
+
+Will return all customers, even those that DO NOT have orders.
+
+## Right Join
+
+Select everything from table B, along with any matching records from table A.
+
+`SELECT * FROM customer RIGHT JOIN orders ON customers.id = orders.customer_id;`
