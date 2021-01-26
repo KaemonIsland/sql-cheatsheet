@@ -257,6 +257,13 @@ Returns 'HELLO WORLD'
 Ex. `SELECT LOWER('Hello World');`
 Returns 'hello world'.
 
+## IFNULL
+
+Replaces null values with a new value.
+Useful for displaying more readable data than NULL
+
+Ex. `SELECT IFNULL(first_name, 'Missing') AS 'First Name', IFNULL(last_name, 'Missing') FROM employees;`
+
 # Refining Selections
 
 ## DISTINCT
@@ -643,12 +650,7 @@ Instead of coding something like:
 
 We can use a sub-query like this.
 
-`SELECT * FORM orders WHERE
-  (
-    SELECT id FROM customers
-    WHERE last_name = 'George'
-  );
-`
+`SELECT * FORM orders WHERE ( SELECT id FROM customers WHERE last_name = 'George' ); `
 
 The above is also not ideal. It's basically the same as the first, and isn't easily
 used dynamically.
@@ -668,7 +670,7 @@ Most common joining method. Returns all results that fit the criteria. (Leaves o
 
 #### Implicit Inner Join
 
-__Joining tables where they match.__
+**Joining tables where they match.**
 
 Similar to Cross joining tables, we can narrow down the information to something that can make sense to us.
 
@@ -680,7 +682,7 @@ a ton of confusing information.
 
 ### Explicit Inner Joins
 
-__Joining tables where they don't match.__
+**Joining tables where they don't match.**
 
 The following example does the same thing as the implicit join. Except the syntax is... well more explicit.
 
