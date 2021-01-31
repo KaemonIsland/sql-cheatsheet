@@ -611,7 +611,10 @@ One book can have tons of reviews.
 
 ## Many to Many
 
+The middle, more common than one:one, but less common than one:many.
 A book can have many authors, and authors can have many books.
+Blog posts and tags.
+Students and classes.
 
 # How to work with relationed tables
 
@@ -702,3 +705,9 @@ Will return all customers, even those that DO NOT have orders.
 Select everything from table B, along with any matching records from table A.
 
 `SELECT * FROM customer RIGHT JOIN orders ON customers.id = orders.customer_id;`
+
+## Many to Many connectors
+
+Connect two table in many:many relationship by introducing a third table that has a one:one relationship with each.
+
+Series Data <-> Reviews Data <-> Reviewers Data
