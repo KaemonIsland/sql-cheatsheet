@@ -711,3 +711,41 @@ Select everything from table B, along with any matching records from table A.
 Connect two table in many:many relationship by introducing a third table that has a one:one relationship with each.
 
 Series Data <-> Reviews Data <-> Reviewers Data
+
+# Database Triggers
+
+<trigger_time(BEFORE, AFTER)> <trigger_event(INSERT, UPDATE, DELETE)> ON <table_name>
+
+Causes an event to happen BEFORE/AFTER a INSERT/UPDATE/DELETE action on <table_name>
+
+Great for validating data, not the best use though. It's better to use it in application code...
+
+NEW.<column_name> referes to the new data attempting to be inserted into the database.
+
+Using `DELIMITER` to set the <end_of_code> so we can use `;` without executing the command.
+
+Generally we use `$$` for delimiters, but it could be anything.
+
+## Managing triggers
+
+`SHOW TRIGGERS;`
+
+Lists all active triggeres.
+
+`DROP TRIGGER <trigger_name>;`
+
+Removes a trigger from the DB.
+
+Note: Using triggers can make debugging hard!
+Triggers are better avoided and implemented on the backend/front end code unless absolutely required.
+
+# MySQL Errors
+
+A numeric error code (1146). This number is MySQL-specific.
+
+A five-character SQLSTATE value ('43s02').
+The values are taken from ANSI SQL and ODBC and are more standardized.
+
+A message string - textual description of the error.
+
+45000 = User-defined exception. A wild-card for us to use for errors.
